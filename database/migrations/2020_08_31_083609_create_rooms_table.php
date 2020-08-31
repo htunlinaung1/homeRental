@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->longText('photo');
-            $table->string('nrcno')->unique();
-            $table->string('phone');
-            $table->string('address');
-            
-            $table->string('email')->unique();
-          
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('username');
-            $table->string('password');
-            $table->rememberToken();
+            $table->longText('Description');
+            $table->foreignID('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignID('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreignID('user_id')->references('id')->on('users')->onDelete('cascade')->default(3);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -39,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('rooms');
     }
 }
