@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('backend.index');
 });
+
+
+Route::group(['prefix'=>'backside','as'=>'backside.'],function(){
+
+ Route::resource('/category','CategoryController');
+ Route::resource('/city','CityController');
+ Route::resource('/paymenttype','PaymenttypeController');
+ 
+});
+

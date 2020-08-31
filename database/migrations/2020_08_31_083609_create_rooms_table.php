@@ -18,9 +18,10 @@ class CreateRoomsTable extends Migration
             $table->string('name');
             $table->longText('photo');
             $table->longText('Description');
+            $table->string('price');
             $table->foreignID('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreignID('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->foreignID('user_id')->references('id')->on('users')->onDelete('cascade')->default(3);
+            $table->foreignID('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

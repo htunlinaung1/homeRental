@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\Category;
 
-class CategoryController extends Controller
+class RentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
-        return view('backend.category.new');
+        //
     }
 
     /**
@@ -36,27 +34,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validator=$request->validate([
-            'name'=>['required','string','max:255','unique:categories'],
-            
-            
-        ]);
-        if($validator)
-       {
-        $name=$request->name;
-       
-
-        $category= new Category();
-        $category->name=$name;
-     
-        $category->save();
-
-        return redirect()->route('backside.category.index')->with('successMsg','New category is Added in your data');
-        }
-        else
-        {
-            return redirect::back()->withErrors($validator);
-        }
+        //
     }
 
     /**
