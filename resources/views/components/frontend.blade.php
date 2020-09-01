@@ -352,7 +352,7 @@
   <script src="{{asset('frontend/assets/vendor/scrollreveal/scrollreveal.min.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{asset('assets/js/main.js')}}"></script>
+  <script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
 </body>
 
