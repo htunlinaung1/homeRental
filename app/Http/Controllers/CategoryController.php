@@ -14,7 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+       $categories=Category::all();
+        // dd($categories);
+
+        return view('backend.category.list',compact('categories'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
+
         return view('backend.category.new');
     }
 
@@ -78,7 +81,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category=Category::find($id);
+        return view('backend.category.edit',compact('category'));
     }
 
     /**
@@ -90,7 +94,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+       $name=$request->name;
+       
+       
+
+      
+       $category=Category::find($id);
+       $category->name=$name;
+      
+       $category->save();
+
+       return redirect()->route('backside.category.index')->with('successMsg','Existing Category is Updated in your data');
+
     }
 
     /**
@@ -101,6 +117,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category=Category::find($id);
+        $category->delete();
+
+        return redirect()->route('backside.category.index')->with('successMsg','Existing Category is DELETED in your data');
     }
 }
