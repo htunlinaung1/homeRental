@@ -16,9 +16,7 @@
                     <h1 class="intro-title mb-4">
                       <span class="color-b">204 </span> Mount
                       <br> Olive Road Two</h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                    </p>
+                    
                   </div>
                 </div>
               </div>
@@ -26,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url({{(assets/img/slide-2.jpg)}})">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url({{asset('frontend/assets//img/slide-2.jpg')}})">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -39,9 +37,7 @@
                     <h1 class="intro-title mb-4">
                       <span class="color-b">204 </span> Rino
                       <br> Venda Road Five</h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                    </p>
+                 
                   </div>
                 </div>
               </div>
@@ -49,7 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url({{(assets/img/slide-3.jpg)}})">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url({{asset('frontend/assets//img/slide-3.jpg')}})">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -62,9 +58,7 @@
                     <h1 class="intro-title mb-4">
                       <span class="color-b">204 </span> Alira
                       <br> Roan Road One</h1>
-                    <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                    </p>
+                  
                   </div>
                 </div>
               </div>
@@ -187,7 +181,7 @@
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+                <img src="{{asset('frontend/assets/img/property-6.jpg')}}" alt="" class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
@@ -234,7 +228,7 @@
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+                <img src="{{asset('frontend/assets/img/property-3.jpg')}}" alt="" class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
@@ -281,7 +275,7 @@
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+                <img src="{{asset('frontend/assets/img/property-7.jpg')}}" alt="" class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
@@ -328,7 +322,7 @@
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+                <img src="{{asset('frontend/assets/img/property-10.jpg')}}" alt="" class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
@@ -399,7 +393,7 @@
           <div class="carousel-item-c">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="assets/img/post-2.jpg" alt="" class="img-b img-fluid">
+                <img src="{{asset('frontend/assets/img/post-2.jpg')}}" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
@@ -422,7 +416,7 @@
           <div class="carousel-item-c">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="assets/img/post-5.jpg" alt="" class="img-b img-fluid">
+                <img src="{{('frontend/assets/img/post-5.jpg"')}} alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
@@ -445,7 +439,7 @@
           <div class="carousel-item-c">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="assets/img/post-7.jpg" alt="" class="img-b img-fluid">
+                <img src="{{asset('frontend/assets/img/post-7.jpg')}}" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
@@ -468,7 +462,7 @@
           <div class="carousel-item-c">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="assets/img/post-3.jpg" alt="" class="img-b img-fluid">
+                <img src="{{asset('frontend/assets/img/post-3.jpg')}}" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
@@ -510,7 +504,7 @@
               <div class="row">
                 <div class="col-sm-12 col-md-6">
                   <div class="testimonial-img">
-                    <img src="assets/img/testimonial-1.jpg" alt="" class="img-fluid">
+                    <img src="{{asset('frontend/assets/img/testimonial-1.jpg')}}" alt="" class="img-fluid">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
@@ -537,7 +531,7 @@
               <div class="row">
                 <div class="col-sm-12 col-md-6">
                   <div class="testimonial-img">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="img-fluid">
+                    <img src="{{asset('frontend/assets/img/testimonial-2.jpg')}}" alt="" class="img-fluid">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
@@ -552,7 +546,7 @@
                     </p>
                   </div>
                   <div class="testimonial-author-box">
-                    <img src="assets/img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
+                    <img src="{{asset('frontend/assets/img/mini-testimonial-2.jpg')}}" alt="" class="testimonial-avatar">
                     <h5 class="testimonial-author">Pablo & Emma</h5>
                   </div>
                 </div>
