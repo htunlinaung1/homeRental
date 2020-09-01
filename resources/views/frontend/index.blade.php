@@ -178,24 +178,29 @@
           </div>
         </div>
         <div id="property-carousel" class="owl-carousel owl-theme">
+
+          @foreach( $toprooms as $toproom)
+
+
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="{{asset('frontend/assets/img/property-6.jpg')}}" alt="" class="img-a img-fluid">
+                <img src="{{asset($toproom->photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
                   <div class="card-header-a">
                     <h2 class="card-title-a">
-                      <a href="property-single.html">206 Mount
-                        <br /> Olive Road Two</a>
+                      <a href="#">{{$toproom->name}}
+                        {{-- <br /> Olive Road Two --}}
+                        </a>
                     </h2>
                   </div>
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
+                      <span class="price-a">{{$toproom->price}}</span>
                     </div>
-                    <a href="#" class="link-a">Click here to view
+                    <a href="{{route('detail',$toproom->id)}}" class="link-a">Click here to view
                       <span class="ion-ios-arrow-forward"></span>
                     </a>
                   </div>
@@ -225,147 +230,10 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item-b">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="{{asset('frontend/assets/img/property-3.jpg')}}" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="property-single.html">157 West
-                        <br /> Central Park</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="ion-ios-arrow-forward"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item-b">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="{{asset('frontend/assets/img/property-7.jpg')}}" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="property-single.html">245 Azabu
-                        <br /> Nishi Park let</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="ion-ios-arrow-forward"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item-b">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="{{asset('frontend/assets/img/property-10.jpg')}}" alt="" class="img-a img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="property-single.html">204 Montal
-                        <br /> South Bela Two</a>
-                    </h2>
-                  </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="ion-ios-arrow-forward"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
+
+
+         
         </div>
       </div>
     </section><!-- End Latest Properties Section -->
@@ -390,15 +258,19 @@
           </div>
         </div>
         <div id="new-carousel" class="owl-carousel owl-theme">
+            @foreach( $latestrooms as $latestroom)
+            @php
+            $day=$latestroom->created_at;
+            @endphp
           <div class="carousel-item-c">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="{{asset('frontend/assets/img/post-2.jpg')}}" alt="" class="img-b img-fluid">
+                 <img src="{{asset($latestroom->photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
                   <div class="card-category-b">
-                    <a href="#" class="category-b">House</a>
+                    <a href="#" class="category-b">{{$toproom->category->name}}</a>
                   </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
@@ -407,81 +279,14 @@
                     </h2>
                   </div>
                   <div class="card-date">
-                    <span class="date-b">18 Sep. 2017</span>
+                    <span class="date-b">{{$day}}</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item-c">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="{{('frontend/assets/img/post-5.jpg"')}} alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Travel</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
-                    </h2>
-                  </div>
-                  <div class="card-date">
-                    <span class="date-b">18 Sep. 2017</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item-c">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="{{asset('frontend/assets/img/post-7.jpg')}}" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Park</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="blog-single.html">Park is comming
-                        <br> new</a>
-                    </h2>
-                  </div>
-                  <div class="card-date">
-                    <span class="date-b">18 Sep. 2017</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item-c">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="{{asset('frontend/assets/img/post-3.jpg')}}" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Travel</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="#">Travel is comming
-                        <br> new</a>
-                    </h2>
-                  </div>
-                  <div class="card-date">
-                    <span class="date-b">18 Sep. 2017</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
+          
         </div>
       </div>
     </section><!-- End Latest News Section -->

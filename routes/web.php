@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
+
+Route::get('/','FrontendController@index')->name('index');
+
+Route::get('property','FrontendController@property')->name('property');
+Route::get('about','FrontendController@about')->name('about');
+Route::get('contact','FrontendController@contact')->name('contact');
+Route::get('room/{id}','FrontendController@detail')->name('detail');
 
 
 Route::group(['prefix'=>'backside','as'=>'backside.'],function(){
