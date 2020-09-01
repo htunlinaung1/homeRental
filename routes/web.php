@@ -26,3 +26,7 @@ Route::group(['prefix'=>'backside','as'=>'backside.'],function(){
  
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
