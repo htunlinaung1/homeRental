@@ -26,6 +26,8 @@ Route::get('about','FrontendController@about')->name('about');
 Route::get('contact','FrontendController@contact')->name('contact');
 Route::get('room/{id}','FrontendController@detail')->name('detail');
 
+Route::get('room','FrontendController@roomcreate')->name('room');
+
 
 Route::group(['prefix'=>'backside','as'=>'backside.'],function(){
 

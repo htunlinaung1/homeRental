@@ -4,7 +4,7 @@
   <main class="app-content">
             <div class="app-title">
                 <div>
-                    <h1> <i class="icofont-list"></i> Category </h1>
+                    <h1> <i class="icofont-list"></i> City</h1>
                 </div>
                 <ul class="app-breadcrumb breadcrumb side">
                     <a href="{{route('backside.city.create')}}" class="btn btn-outline-primary">

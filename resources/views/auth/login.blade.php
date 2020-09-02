@@ -1,4 +1,16 @@
-@extends('layouts.app')
+<x-frontend>
+
+  <section class="breadcrumb-section set-bg subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2> Register </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @section('content')
 <div class="container">
@@ -70,4 +82,5 @@
         </div>
     </div>
 </div>
-@endsection
+
+</x-frontend>

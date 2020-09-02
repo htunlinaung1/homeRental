@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Room;
+use App\Category;
+use App\City;
 
 
 class FrontendController extends Controller
@@ -55,7 +57,18 @@ class FrontendController extends Controller
      */
     public function create()
     {
-        //
+        
+    }
+     public function roomcreate()
+    {
+
+        $categories = Category::all();
+        $cities = City::all();
+        return view('frontend.room',compact('categories','cities'));
+
+         
+
+       
     }
     public function detail($id)
     {
@@ -77,6 +90,11 @@ class FrontendController extends Controller
     {
         //
     }
+     public function roomstore(Request $request)
+    {
+        //
+    }
+
 
     /**
      * Display the specified resource.

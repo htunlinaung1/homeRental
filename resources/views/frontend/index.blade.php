@@ -159,7 +159,20 @@
         </div>
       </div>
     </section><!-- End Services Section -->
+     <div class="row">
+          <div class="col-md-12">
 
+            @guest
+            
+               <a href="#" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 100px; width: 500px; margin-left: 450px;" >Register Room Here</a>
+
+               @else
+               <a href="{{route('room')}}" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 100px; width: 500px; margin-left: 450px;">Register Room Here</a>
+               @endif
+
+             
+          </div>
+        </div>
     <!-- ======= Latest Properties Section ======= -->
     <section class="section-property section-t8">
       <div class="container">

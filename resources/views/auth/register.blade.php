@@ -33,11 +33,17 @@
             <div class="row justify-content-center">
                 <div class="col-8">
                      <form method="POST" action="{{ route('register') }}">
+                          @csrf
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label class="small mb-1" for="inputName"> Name</label>
                                   <input class="form-control py-4" id="inputName" type="text" placeholder="Enter Name" name="name" autofocus="" />
+                                   @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -56,27 +62,34 @@
                         <div class="form-group">
                             <label class="small mb-1" for="inputEmailAddress">Email</label>
                             <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" name="email" />
+                            @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
-                         <div class="form-group">
-                            <label class="small mb-1" for="inputEmailAddress">Photo</label>
-                            <input class="form-control py-4" id="" type="file" aria-describedby="emailHelp"  name="Photo" />
-                        </div>
+                        
                         <div class="form-row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="small mb-1" for="inputPassword">UserNmae</label>
-                                  <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" name="username" />
-                                  <font id="error" color="red"></font>
-                                </div>
-
-                            </div>
+                           
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label class="small mb-1" for="inputPassword"> Password</label>
                                   <input class="form-control py-4" id="inputPassword" type="password" placeholder="Password" />
-                                  <font id="cerror" color="red"></font>
+                                   @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 
                                 </div>
+                            </div>
+                             <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="small mb-1" for="inputPassword">Confirm Password</label>
+                                  <input class="form-control py-4" id="inputUsername" type="password"  placeholder="Confirm Password" name="conpassword" />
+                                  <font id="error" color="red"></font>
+                                </div>
+
                             </div>
                         </div>
 
@@ -85,9 +98,12 @@
                             <textarea class="form-control" name="address"></textarea>
                         </div>
                         
-                        <div class="text-center">
-                            
-                            <button type="submit" class="site-btn"> Create Account </button>
+                      <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
                         </div>
                     </form>
 

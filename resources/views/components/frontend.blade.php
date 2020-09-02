@@ -26,6 +26,18 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('frontend/assets/css/style.css')}}" rel="stylesheet">
 
+    <!------------------Summernote--->
+    <link rel="stylesheet" href="{{asset('summernote/summernote-bs4.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('summernote/summernote-bs4.js')}}" type="text/css">
+
+    <!----------Multiple ----------->
+    <link rel="stylesheet" type="text/css" href="{{asset('multipleimageupload/image-uploader.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('multipleimageupload/image-uploader.min.js')}}">
+
+    <script type="text/javascript">
+        $('#sampleTable').DataTable();
+    </script>
+
   <!-- =======================================================
   * Template Name: EstateAgency - v2.1.0
   * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
@@ -47,7 +59,7 @@
     <div class="box-collapse-wrap form">
       <form class="form-a">
         <div class="row">
-         
+
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Category</label>
@@ -116,203 +128,218 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('property')}}">Property</a>
           </li>
-          
+          @guest
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Register
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{route('register')}}">register</a>
-              <a class="dropdown-item" href="blog-single.html">Login</a>
-             
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('contact')}}">Contact</a>
-          </li>
-        </ul>
-      </div>
-      <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
-        <span class="fa fa-search" aria-hidden="true"></span>
-      </button>
-    </div>
-  </nav><!-- End Header/Navbar -->
+              <a class="dropdown-item" href="{{route('login')}}">Login</a>
 
-  
+            </div>
+          </li>
+          @else
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Profile
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+
+          </div>
+        </li>
+        @endif
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('contact')}}">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+  </div>
+</nav><!-- End Header/Navbar -->
+
+
 {{$slot}}
-  <!-- ======= Footer ======= -->
-  <section class="section-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-4">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">EstateAgency</h3>
-            </div>
-            <div class="w-body-a">
-              <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
-              </p>
-            </div>
-            <div class="w-footer-a">
-              <ul class="list-unstyled">
-                <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com</li>
+<!-- ======= Footer ======= -->
+<section class="section-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="widget-a">
+          <div class="w-header-a">
+            <h3 class="w-title-a text-brand">EstateAgency</h3>
+          </div>
+          <div class="w-body-a">
+            <p class="w-text-a color-text-a">
+              Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
+              sed aute irure.
+            </p>
+          </div>
+          <div class="w-footer-a">
+            <ul class="list-unstyled">
+              <li class="color-a">
+                <span class="color-text-a">Phone .</span> contact@example.com</li>
                 <li class="color-a">
                   <span class="color-text-a">Email .</span> +54 356 945234</li>
-              </ul>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">The Company</h3>
+          <div class="col-sm-12 col-md-4 section-md-t3">
+            <div class="widget-a">
+              <div class="w-header-a">
+                <h3 class="w-title-a text-brand">The Company</h3>
+              </div>
+              <div class="w-body-a">
+                <div class="w-body-a">
+                  <ul class="list-unstyled">
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                    </li>
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                    </li>
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                    </li>
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                    </li>
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                    </li>
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="w-body-a">
+          </div>
+          <div class="col-sm-12 col-md-4 section-md-t3">
+            <div class="widget-a">
+              <div class="w-header-a">
+                <h3 class="w-title-a text-brand">International sites</h3>
+              </div>
               <div class="w-body-a">
                 <ul class="list-unstyled">
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                    <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                    <i class="fa fa-angle-right"></i> <a href="#">China</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                    <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                    <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                    <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                    <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">International sites</h3>
-            </div>
-            <div class="w-body-a">
-              <ul class="list-unstyled">
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="nav-footer">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="{{route('index')}}">Home</a>
                 </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">China</a>
+                <li class="list-inline-item">
+                  <a href="{{route('about')}}">About</a>
                 </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
+                <li class="list-inline-item">
+                  <a href="{{route('property')}}">Property</a>
                 </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
+
+                <li class="list-inline-item">
+                  <a href="{{route('contact')}}">Contact</a>
                 </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
+              </ul>
+            </nav>
+            <div class="socials-a">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
                 </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                  </a>
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="nav-footer">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="{{route('index')}}">Home</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="{{route('about')}}">About</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="{{route('property')}}">Property</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Blog</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="{{route('contact')}}">Contact</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="socials-a">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="copyright-footer">
-            <p class="copyright color-text-a">
-              &copy; Copyright
-              <span class="color-a">EstateAgency</span> All Rights Reserved.
-            </p>
-          </div>
-          <div class="credits">
+            <div class="copyright-footer">
+              <p class="copyright color-text-a">
+                &copy; Copyright
+                <span class="color-a">EstateAgency</span> All Rights Reserved.
+              </p>
+            </div>
+            <div class="credits">
             <!--
             All the links in the footer should remain intact.
             You can delete the links only if you purchased the pro version.
             Licensing information: https://bootstrapmade.com/license/
             Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
           -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
     </div>
-  </footer><!-- End  Footer -->
+  </div>
+</footer><!-- End  Footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="{{asset('frontend/assets/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('frontend/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
-  <script src="{{asset('frontend/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{asset('frontend/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('frontend/assets/vendor/scrollreveal/scrollreveal.min.js')}}"></script>
+<!-- Vendor JS Files -->
+<script src="{{asset('frontend/assets/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/php-email-form/validate.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('frontend/assets/vendor/scrollreveal/scrollreveal.min.js')}}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{{asset('frontend/assets/js/main.js')}}"></script>
+<!-- Template Main JS File -->
+<script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
 </body>
 
