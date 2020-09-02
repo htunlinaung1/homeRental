@@ -122,8 +122,8 @@
               Register
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="property-single.html">Customer</a>
-              <a class="dropdown-item" href="blog-single.html">Owner</a>
+              <a class="dropdown-item" href="{{route('register')}}">register</a>
+              <a class="dropdown-item" href="blog-single.html">Login</a>
              
             </div>
           </li>
