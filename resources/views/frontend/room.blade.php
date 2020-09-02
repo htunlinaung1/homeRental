@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <div class="tile">
                     <div class="tile-body">
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="{{-- {{route('frontend.store')}} --}}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             
