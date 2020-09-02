@@ -11,8 +11,8 @@ class Paymenttype extends Model
     protected $fillable=[
     	'name'
     ];
-    public function rooms()
+    public function rent()
     {
-    	return $this->hasMany('App\Paymenttype');
+    	return $this->belongsTo('App\Rent');
     }
 }

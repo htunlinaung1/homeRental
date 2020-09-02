@@ -150,7 +150,13 @@
                     pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
                   </p>
                 </div>
-             
+                     <div class="row section-t3">
+                  <div class="col-sm-12">
+                    <div class="title-box-d">
+                      <a href="#" class="btn btn-primary">Rent Here</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

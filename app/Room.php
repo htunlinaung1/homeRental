@@ -20,6 +20,10 @@ class Room extends Model
     {
     	return $this->belongsTo('App\City');
     }
+      public function rents()
+    {
+        return $this->hasMany('App\Room');
+    }
 
     	
 
