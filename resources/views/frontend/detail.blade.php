@@ -40,7 +40,11 @@
 			$id=$room->id;
 			
 			$name=$room->name;
-			$photo=$room->photo;
+
+      $photos=json_decode($room->photo);
+
+   //    $photo=$photos[0];
+			// $photo=$room->photo;
 
 			$description=$room->Description;
 			$price=$room->price;
@@ -53,17 +57,17 @@
 
 			@endphp
           <div class="col-sm-12">
+           
             <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
+               @foreach($photos as $photo)
               <div class="carousel-item-b">
                 <img src="{{asset($photo)}}" alt="">
               </div>
-              <div class="carousel-item-b">
-                <img src="{{asset($photo)}}" alt="">
-              </div>
-              <div class="carousel-item-b">
-                <img src="{{asset($photo)}}" alt="">
-              </div>
+              @endforeach
+         
             </div>
+       
+
             <div class="row justify-content-between">
               <div class="col-md-5 col-lg-4">
                 <div class="property-price d-flex justify-content-center foo">
@@ -98,6 +102,7 @@
                         <strong>Property Type:</strong>
                         <span>{{$category}}</span>
                       </li>
+                       
                       <li class="d-flex justify-content-between">
                         <strong>Description: </strong>
                         <span>{{$description}}</span>
@@ -152,9 +157,21 @@
                 </div>
                      <div class="row section-t3">
                   <div class="col-sm-12">
-                    <div class="title-box-d">
-                      <a href="#" class="btn btn-primary">Rent Here</a>
-                    </div>
+                   
+                  
+                    
+
+                        @guest
+             <div class="title-box-d">
+               <a href="#" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 50px; width: 500px; " >Rent Here</a>
+               </div>
+               @else
+                <div class="title-box-d">
+               <a href="#" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 50px; width: 500px; ">Rent Here</a>
+               </div>
+               @endif
+
+
                   </div>
                 </div>
               </div>

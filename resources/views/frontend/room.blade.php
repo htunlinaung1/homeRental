@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <div class="tile">
                     <div class="tile-body">
-                        <form action="{{-- {{route('frontend.store')}} --}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             
@@ -69,7 +69,7 @@
                             <div class="form-group row">
                                 <label for="photo_id" class="col-sm-2 col-form-label"> Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="brandid">
+                                    <select class="form-control" name="category_id">
                                         <option> Choose Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}"> {{ $category->name }} </option>
@@ -81,7 +81,7 @@
                             <div class="form-group row">
                                 <label for="photo_id" class="col-sm-2 col-form-label"> City </label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="subcategoryid">
+                                    <select class="form-control" name="city_id">
                                         <option> Choose City </option>
                                         @foreach($cities as $city)
                                             <option value="{{ $city->id }}"> {{ $city->name }} </option>

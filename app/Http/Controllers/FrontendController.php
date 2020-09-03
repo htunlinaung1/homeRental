@@ -89,63 +89,62 @@ class FrontendController extends Controller
      */
     public function store(Request $request)
     {
-        // $validator = $request->validate([
-        //     'name'  => ['required', 'string', 'max:255',],
-        // ]);
+           $validator = $request->validate([
+            'name'  => ['required', 'string', 'max:255',],
+        ]);
 
-        // if ($validator) {
-        //     $name = $request->name;
-        //     $price = $request->price;
+        if ($validator) {
+            $name = $request->name;
+            $price = $request->price;
+            $user_id=Auth::user()->id;
+            $description = $request->description;
+            $city_id = $request->city_id;
+            $category_id = $request->category_id;
+           
+
+
+
+            // FILE UPLOAD
+
+            if ($request->hasfile('images')) 
+            {
+                $i=1;
+                foreach($request->file('images') as $image)
+                {
+                    $imagename = time().$i.'.'.$image->extension();
+                    $image->move(public_path('images/rooms'), $imagename);  
+                    $data[] = 'images/rooms/'.$imagename;
+                    $i++;
+                }
+            }
+            // $photoString = implode(',', $data);
+
             
-        //     $description = $request->description;
-        //     $city_id = $request->city_id;
-        //     $category_id = $request->category_id;
+
+            $room= new Room();
            
-
-
-
-        //     // FILE UPLOAD
-
-        //     if ($request->hasfile('images')) 
-        //     {
-        //         $i=1;
-        //         foreach($request->file('images') as $image)
-        //         {
-        //             $imagename = time().$i.'.'.$image->extension();
-        //             $image->move(public_path('images/rooms'), $imagename);  
-        //             $data[] = 'images/rooms/'.$imagename;
-        //             $i++;
-        //         }
-        //     }
-        //     // $photoString = implode(',', $data);
-
+            $room->name = $name;
+            $room->photo = json_encode($data);
+            $room->price = $price;
             
-
-        //     $room= new Item();
+            $room->description = $description;
+            $room->category_id = $category_id;
+            $room->city_id = $city_id;
+            $room->user_id = $user_id;
            
-        //     $room->name = $name;
-        //     $room->photo = json_encode($data);
-        //     $room->price = $price;
-           
-        //     $room->description = $description;
-        //     $room->category_id = $category_id;
-        //     $room->city_id = $city_id;
-           
-        //     $room->save();
+            $room->save();
 
-        //     return redirect()->route('frontend.index')->with("successMsg", "New Item is ADDED in your data");
+            return redirect()->route('index')->with("successMsg", "New Room is ADDED in your data");
 
 
-        // }else{
-        //     return Redirect::back()->withErrors($validator);
-        // }
-
+        }else{
+            return Redirect::back()->withErrors($validator);
+        }
+ 
     }
 
     
-     public function roomstore(Request $request)
-    {
-            }
+
 
 
     /**

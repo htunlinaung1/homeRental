@@ -45,11 +45,16 @@
           </div>
         
             @foreach( $rooms as $room)
+            @php
+            $photos=json_decode($room->photo);
+
+             $photo=$photos[0];
+             @endphp
           <div class="col-md-4">
 
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="{{asset($room->photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
+                <img src="{{asset($photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">

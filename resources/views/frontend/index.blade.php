@@ -193,12 +193,18 @@
         <div id="property-carousel" class="owl-carousel owl-theme">
 
           @foreach( $toprooms as $toproom)
+          @php
 
+            $photos=json_decode($toproom->photo);
+
+             $photo=$photos[0];
+
+          @endphp
 
           <div class="carousel-item-b">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="{{asset($toproom->photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
+                <img src="{{asset($photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
@@ -274,11 +280,15 @@
             @foreach( $latestrooms as $latestroom)
             @php
             $day=$latestroom->created_at;
+
+             $photos=json_decode($latestroom->photo);
+
+             $photo=$photos[0];
             @endphp
           <div class="carousel-item-c">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                 <img src="{{asset($latestroom->photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
+                 <img src="{{asset($photo)}}" alt="" class="img-a img-fluid" style="width: 200px; height: 300px;">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
