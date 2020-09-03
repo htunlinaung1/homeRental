@@ -8,6 +8,8 @@
   <title>EstateAgency Bootstrap Template - Index</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
   <!-- Favicons -->
   <link href="{{asset('fronteassets/img/favicon.png')}}" rel="icon">
@@ -57,28 +59,31 @@
     </div>
     <span class="close-box-collapse right-boxed ion-ios-close"></span>
     <div class="box-collapse-wrap form">
-      <form class="form-a">
+      <form class="form-a" action="{{route('search')}}" method="post">
+        @csrf
         <div class="row">
 
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Category</label>
-              <select class="form-control form-control-lg form-control-a" id="Type">
-                <option>Hall</option>
-                <option>Condo</option>
-                <option>Normal room</option>
-                <option>Home</option>
+              <select class="form-control form-control-lg form-control-a"  name="category">
+                 <option >Choose Category</option>
+                @foreach($data[0] as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+
+             
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="city">City</label>
-              <select class="form-control form-control-lg form-control-a" id="city">
-                <option>All City</option>
-                <option>Sanchaung</option>
-                <option>MayNiGone</option>
-                <option>Hlaing</option>
+              <select class="form-control form-control-lg form-control-a"  name="city">
+                 <option >Choose City</option>
+                 @foreach($data[1]  as $city)
+                <option value="{{$city->id}}">{{$city->name}}</option>
+                @endforeach
                 
               </select>
             </div>
@@ -88,13 +93,7 @@
           <div class=" col-md-12 mb-2">
             <div class="form-group">
               <label for="price">Min Price</label>
-              <select class="form-control form-control-lg form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
-              </select>
+               <input type="number" class="form-control form-control-lg form-control-a" name="price">
             </div>
           </div>
           <div class="col-md-12">

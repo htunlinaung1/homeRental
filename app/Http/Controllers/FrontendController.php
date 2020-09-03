@@ -9,6 +9,8 @@ use App\Room;
 use App\Category;
 use App\City;
 use App\User;
+use App\Paymenttype;
+use App\Rent;
 
 
 class FrontendController extends Controller
@@ -26,10 +28,13 @@ class FrontendController extends Controller
        $latestrooms=Room::latest()->take(4)->get();
        // $reviewitems=Item::all()->random(3);
 
+       $cities=City::all();
+       $categories=Category::all();
+
       
 
 
-       return view('frontend.index',compact('rooms','toprooms','latestrooms'));
+       return view('frontend.index',compact('rooms','toprooms','latestrooms','cities','categories'));
     }
     public function property()
     {
@@ -73,11 +78,13 @@ class FrontendController extends Controller
     }
     public function detail($id)
     {
-           $roomdetails=Room::where('id',$id)->get();
+          // $roomdetails=Room::where('id',$id)->get();
+        $roomdetail=Room::find($id);
+         $paymenttypes = Paymenttype::all();
 
         
 
-         return view('frontend.detail',compact('roomdetails'));
+         return view('frontend.detail',compact('roomdetail','paymenttypes'));
     }
 
 
@@ -157,6 +164,44 @@ class FrontendController extends Controller
     {
         //
     }
+      public function cart(Request $request)
+   {
+     
+     $room_id=$request->room_id;
+     $duration=$request->duration;
+     $paymenttype_id=$request->paymenttype_id;
+
+     $codeno="RMT-".rand(111111,999999);
+     $date=Carbon::now();
+     $user_id=Auth::user()->id;
+     $room=Room::find($room_id);
+     $price=$room->price;
+     $amount=$price*$duration;
+     // dd($amount);
+
+     $rent= new Rent();
+     $rent->codeno=$codeno;
+     $rent->date=$date;
+     $rent->duration=$duration;
+     $rent->paymenttype_id=$paymenttype_id;
+     $rent->room_id=$room_id;
+     $rent->user_id=$user_id;
+     $rent->amount=$amount;
+     
+     $rent->save();
+
+            return redirect()->route('index')->with("successMsg", "Your rent is successfully");
+      
+   }
+   //    public function cartroom($id)
+   // {
+
+     
+   //    $room=Room::where('id',$id)->get();
+  
+   //    return view ('frontend.cart',compact('room'));
+   // }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -190,6 +235,17 @@ class FrontendController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function search(Request $request)
+    {
+        // dd($request);
+        $rooms=Room::where('category_id','=',$request->category)
+                        ->where('city_id','=',$request->city)
+                        ->where('price','>=',$request->price)
+                        ->get();
+
+        return view('frontend.roomsearch',compact('rooms'));
+        
     }
 
    

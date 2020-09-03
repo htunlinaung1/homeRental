@@ -35,8 +35,9 @@
     <section class="property-single nav-arrow-b">
       <div class="container">
         <div class="row">
-        	@foreach ($roomdetails as $room)
+        
 			@php
+      $room=$roomdetail;
 			$id=$room->id;
 			
 			$name=$room->name;
@@ -102,16 +103,20 @@
                         <strong>Property Type:</strong>
                         <span>{{$category}}</span>
                       </li>
-                       
+                         <li class="d-flex justify-content-between">
+                        <strong>Price: </strong>
+                        <span>{{$price}}</span>
+                      </li>
+                    {{--    
                       <li class="d-flex justify-content-between">
                         <strong>Description: </strong>
-                        <span>{{$description}}</span>
-                      </li>
+                        <span>{!!$description!!}</span>
+                      </li> --}}
                       <li class="d-flex justify-content-between">
                         <strong>Status:</strong>
-                        <span>Sale</span>
+                        <span>Rent</span>
                       </li>
-                      <li class="d-flex justify-content-between">
+                      {{-- <li class="d-flex justify-content-between">
                         <strong>Area:</strong>
                         <span>340m
                           <sup>2</sup>
@@ -128,7 +133,7 @@
                       <li class="d-flex justify-content-between">
                         <strong>Garage:</strong>
                         <span>1</span>
-                      </li>
+                      </li> --}}
                     </ul>
                   </div>
                 </div>
@@ -143,33 +148,55 @@
                 </div>
                 <div class="property-description">
                   <p class="description color-text-a">
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-                    neque, auctor sit amet
-                    aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.
-                    Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt
-                    nibh pulvinar quam id dui posuere blandit.
+                   {!!$description!!}
                   </p>
-                  <p class="description color-text-a no-margin">
-                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                    malesuada. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-                  </p>
+                  
                 </div>
                      <div class="row section-t3">
                   <div class="col-sm-12">
-                   
-                  
+                   <form action="{{route('cart')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="room_id" value="{{$id}}">
+                  <div class="title-box-d">
+                      <div class=" col-md-12">
+                         <div class="form-group row">
+                                <label for="name_id" class="col-sm-2 col-form-label"> Duration:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name_id" name="duration">
+                                </div>
+                            </div>
+
+                          
+
+                          
+                           
+
+                            <div class="form-group row">
+                                <label for="photo_id" class="col-sm-2 col-form-label"> Payment Type :</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="paymenttype_id">
+                                        <option> Choose Payment Type</option>
+                                        @foreach($paymenttypes as $paymenttype)
+                                            <option value="{{ $paymenttype->id }}"> {{ $paymenttype->name }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div col-sm-10>
+                               
+                              <input type="submit" class="btn-primary btn-lg" value="Rent Here">
+                            
+                            </div>
+
+
+
+                      
+                      </div>
+                  </div>
+                </form>
                     
 
-                        @guest
-             <div class="title-box-d">
-               <a href="#" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 50px; width: 500px; " >Rent Here</a>
-               </div>
-               @else
-                <div class="title-box-d">
-               <a href="#" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 50px; width: 500px; ">Rent Here</a>
-               </div>
-               @endif
+                
 
 
                   </div>
@@ -177,7 +204,7 @@
               </div>
             </div>
           </div>
-          @endforeach
+          
      
    
         </div>
