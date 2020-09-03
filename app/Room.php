@@ -24,6 +24,10 @@ class Room extends Model
     {
         return $this->hasMany('App\Room');
     }
+      public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     	
 

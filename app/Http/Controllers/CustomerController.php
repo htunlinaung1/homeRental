@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\City;
-use App\Room;
 use App\User;
-
-class RoomController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +13,10 @@ class RoomController extends Controller
      */
     public function index()
     {
-         $rooms=Room::all();
-        // dd($categories);
+        $customers=User::all();
+     
 
-        return view('backend.room.list',compact('rooms'));
+        return view('backend.customer.list',compact('customers'));
     }
 
     /**
@@ -86,9 +82,9 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        $room=Room::find($id);
-        $room->delete();
+       $customer=User::find($id);
+        $customer->delete();
 
-        return redirect()->route('backside.room.index')->with('successMsg','Existing City is DELETED in your data');
+        return redirect()->route('backside.customer.index')->with('successMsg','Existing City is DELETED in your data');
     }
 }

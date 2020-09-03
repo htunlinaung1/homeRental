@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\City;
+use App\Room;
+use App\User;
+use App\Rent;
 
 class RentController extends Controller
 {
@@ -13,7 +18,11 @@ class RentController extends Controller
      */
     public function index()
     {
-        //
+        
+         $rents=Rent::all();
+     
+
+        return view('backend.rent.list',compact('rents'));
     }
 
     /**
@@ -79,6 +88,9 @@ class RentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rent=Rent::find($id);
+        $rent->delete();
+
+        return redirect()->route('backside.rent.index')->with('successMsg','Existing City is DELETED in your data');
     }
 }

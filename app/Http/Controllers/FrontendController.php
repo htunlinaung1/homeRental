@@ -240,9 +240,30 @@ class FrontendController extends Controller
     {
         // dd($request);
         $rooms=Room::where('category_id','=',$request->category)
-                        ->where('city_id','=',$request->city)
-                        ->where('price','>=',$request->price)
+                        ->orWhere('city_id','=',$request->city)
+                        ->orWhere('price','>=',$request->price)
                         ->get();
+
+
+
+        // $rooms=Room::where('category_id','=',$request->category)
+        //             ->orWhere(function ($query)
+        //             {
+        //             $query->where('city_id','=',$request->city)
+        //             })
+        //              ->orWhere(function ($query)
+        //             {
+        //             $query->where('price','>=',$request->price)
+        //             })
+        //              ->get();
+
+        // $rooms=Room::where(function ($query){
+
+        //     $query->where('category_id','=',$request->category)
+        //                 ->orWhere('city_id','=',$request->city)
+        //                ->orWhere('price','>=',$request->price)
+
+        // })->get();
 
         return view('frontend.roomsearch',compact('rooms'));
         

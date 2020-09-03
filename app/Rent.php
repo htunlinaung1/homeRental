@@ -19,4 +19,8 @@ class Rent extends Model
     {
     	return $this->hasMany('App\Paymenttype');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -41,7 +41,7 @@ class LoginController extends Controller
     {
         if ($user->hasrole('admin')) 
         {
-           return redirect('backside/category');
+           return redirect('backside/rent');
         }
 
         if ($user->hasrole('customer')) 

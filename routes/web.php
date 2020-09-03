@@ -41,6 +41,9 @@ Route::group(['prefix'=>'backside','as'=>'backside.'],function(){
  Route::resource('/category','CategoryController');
  Route::resource('/city','CityController');
  Route::resource('/paymenttype','PaymenttypeController');
+ Route::resource('/room','RoomController');
+ Route::resource('/rent','RentController');
+ Route::resource('/customer','CustomerController');
  
 });
 
@@ -48,3 +51,4 @@ Route::group(['prefix'=>'backside','as'=>'backside.'],function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/room', 'RoomController@index')->name('room');

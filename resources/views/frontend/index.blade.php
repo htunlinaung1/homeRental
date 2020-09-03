@@ -293,7 +293,7 @@
               <div class="card-overlay">
                 <div class="card-header-b">
                   <div class="card-category-b">
-                    <a href="#" class="category-b">{{$toproom->category->name}}</a>
+                    <a href="{{route('detail',$toproom->id)}}" class="category-b">{{$latestroom->category->name}}</a>
                   </div>
                   <div class="card-title-b">
                     <h2 class="title-2">

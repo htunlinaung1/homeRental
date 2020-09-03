@@ -44,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link{{Request::segment(2)==='rent'?'active':''}}" href="{{route('backside.rent.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -106,10 +106,13 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="#">Login</a>
-            <a class="collapse-item{{Request::segment(2)==='brand'?'active':''}}" href="{{route('backside.category.index')}}">Category</a>
-             <a class="collapse-item{{Request::segment(2)==='brand'?'active':''}}" href="{{route('backside.city.index')}}">City</a>
-             <a class="collapse-item{{Request::segment(2)==='brand'?'active':''}}" href="{{route('backside.paymenttype.index')}}">Payment Type</a>
+           
+             <a class="collapse-item {{Request::segment(2)==='category'?'active':''}}" href="{{route('backside.category.index')}} ">Category</a>
+
+             <a class="collapse-item{{Request::segment(2)==='city'?'active':''}}" href="{{route('backside.city.index')}}">City</a>
+             <a class="collapse-item{{Request::segment(2)==='paymenttype'?'active':''}}" href="{{route('backside.paymenttype.index')}}">Payment Type</a>
+             <a class="collapse-item{{Request::segment(2)==='room'?'active':''}}" href="{{route('backside.room.index')}}">Room</a>
+              <a class="collapse-item{{Request::segment(2)==='user'?'active':''}}" href="{{route('backside.customer.index')}}">Customer</a>
             
             
           </div>
