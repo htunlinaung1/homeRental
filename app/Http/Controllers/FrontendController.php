@@ -13,6 +13,7 @@ use App\Paymenttype;
 use App\Rent;
 
 
+
 class FrontendController extends Controller
 {
     /**
@@ -30,6 +31,8 @@ class FrontendController extends Controller
 
        $cities=City::all();
        $categories=Category::all();
+
+
 
       
 
@@ -51,6 +54,16 @@ class FrontendController extends Controller
     {
 
        return view('frontend.contact');
+    }
+
+    public function rent()
+    {
+       $rents=Rent::all();
+
+       $users=Rent::where('user_id','=',Auth::user()->id)->get();
+
+
+       return view('frontend.history',compact('users'));
     }
 
 
@@ -177,6 +190,7 @@ class FrontendController extends Controller
      $room=Room::find($room_id);
      $price=$room->price;
      $amount=$price*$duration;
+     $status=0;
      // dd($amount);
 
      $rent= new Rent();
@@ -187,6 +201,7 @@ class FrontendController extends Controller
      $rent->room_id=$room_id;
      $rent->user_id=$user_id;
      $rent->amount=$amount;
+     $rent->status=$status;
      
      $rent->save();
 

@@ -19,6 +19,7 @@ class CreateRentsTable extends Migration
             $table->date('date');
             $table->text('duration');
             $table->text('amount');
+            $table->text('status');
             $table->foreignID('paymenttype_id')->references('id')->on('paymenttypes')->onDelete('cascade');
             $table->foreignID('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->foreignID('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -1,5 +1,26 @@
-<x-backend>  
-
+<x-frontend>  
+<section class="breadcrumb-section set-bg subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2> Register </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <section class="breadcrumb-section set-bg subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2> Register </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <main class="app-content">
             <div class="app-title">
@@ -12,7 +33,7 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div class="tile-body">
-                            @if(session('successMsg')!=NULL)
+                           {{--  @if(session('successMsg')!=NULL)
 
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                               <strong>Success!</strong> {{session('successMsg')}}
@@ -21,7 +42,7 @@
                               </button>
                             </div>
 
-                            @endif
+                            @endif --}}
 
 
 
@@ -35,7 +56,7 @@
                                           
                                           <th>Amount</th>
                                           <th>Room Name</th>
-                                          <th>Customer</th>
+                                          <th>Customer Name</th>
                                           <th>Phone</th>
                                           
                                           <th>Action</th>
@@ -43,7 +64,7 @@
                                     </thead>
                                     <tbody>
                                         @php $i=1; @endphp
-                                        @foreach($rents as $rent)
+                                        @foreach($users as $rent)
 
                                         @php 
                                             $id=$rent->id;
@@ -77,29 +98,17 @@
                                              </td>
                                             
                                             <td>
-                                               @if ($rent->status==1):
-                       
-                     
-                                        
-
-                    <a href="{{route('rent.cancel',$id)}}" class="btn btn-outline-danger">
-                      <i class="icofont-close icofont-1x"></i>
-                    </a>
-                    @else ($rent->status==2):
-                           <a href="{{route('rent.confirm',$id)}}" class="btn btn-outline-success">
+                                               {{-- <a href="" class="btn btn-outline-success">
                       <i class="icofont-ui-check"></i>
-                    </a>
-
-
-                    
+                    </a> --}}
+                    <a href="{{route('index')}}" class="btn-outline-success"> Back</a>
                                               
-                                               {{--  <form action="{{route('backside.rent.destroy',$id)}}" method="POST" class="d-inline-block"> 
+                                                {{-- <form action="{{route('backside.rent.destroy',$id)}}" method="POST" class="d-inline-block" onsubmit="return confirm('Are You Sure Delete?')"> 
                                                     @csrf
-                                                    @method('POST')
+                                                    @method('DELETE')
                                                     <button class="btn btn-outline-danger" type="submit"> <i class="icofont-close icofont-1x"></i></button>
                                                 </form> --}}
                                             </td>
-                                            @endif
 
                                         </tr>
                                         @endforeach
@@ -111,4 +120,4 @@
                 </div>
             </div>
         </main>
-</x-backend>  
+</x-frontend>  

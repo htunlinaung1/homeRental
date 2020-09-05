@@ -185,6 +185,7 @@
                             <div col-sm-10>
                                
                               <input type="submit" class="btn-primary btn-lg" value="Rent Here">
+                              
                             
                             </div>
 

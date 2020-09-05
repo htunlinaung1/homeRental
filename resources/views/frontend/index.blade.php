@@ -164,7 +164,7 @@
 
             @guest
             
-               <a href="#" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 100px; width: 500px; margin-left: 450px;" >Register Room Here</a>
+               <a href="{{route('login')}}" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 100px; width: 500px; margin-left: 450px;" >Register Room Here</a>
 
                @else
                <a href="{{route('room')}}" class="btn btn-primary btn-lg btn-block" style="height: 100px; margin-top: 100px; width: 500px; margin-left: 450px;">Register Room Here</a>

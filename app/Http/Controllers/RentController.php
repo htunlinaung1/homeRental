@@ -88,9 +88,41 @@ class RentController extends Controller
      */
     public function destroy($id)
     {
-        $rent=Rent::find($id);
-        $rent->delete();
+        //  dd($id);
+        // $rent=Rent::find($id);
+      
+               
+        // $status=2;
+        //     $rent= new Rent();
+        //     $rent->status=$status;
+        //     dd($status);
+        //     $rent->save();
 
-        return redirect()->route('backside.rent.index')->with('successMsg','Existing City is DELETED in your data');
+        //     return redirect()->route('backside.rent.index');
+    }
+
+    public function confirm($id)
+    {
+        
+        $rent=Rent::find($id);
+        $rent->status=1;
+      
+               
+       
+            $rent->save();
+
+            return redirect()->route('backside.rent.index');
+    }
+     public function cancel($id)
+    {
+        
+        $rent=Rent::find($id);
+        $rent->status=2;
+      
+               
+       
+            $rent->save();
+
+            return redirect()->route('backside.rent.index');
     }
 }
